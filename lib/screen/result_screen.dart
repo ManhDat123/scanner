@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-
 class ResultScreen extends StatelessWidget{
   final String text;
+  late TextEditingController controller = TextEditingController(text:text);
 
-  const ResultScreen({super.key, required this.text});
+   ResultScreen({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -12,7 +12,12 @@ class ResultScreen extends StatelessWidget{
     ),
     body: Container(
       padding: const EdgeInsets.all(30.0),
-      child: SelectableText(text),
+      child: TextField(
+        obscureText: false,
+        textAlign: TextAlign.left,
+        controller: controller,
+        maxLength: 200,
+      ),
     ),
 
   );
